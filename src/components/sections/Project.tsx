@@ -75,7 +75,7 @@ export const Project = () => {
                     </div>
                 </div>
 
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors text-foreground">
                     {project.title}
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
