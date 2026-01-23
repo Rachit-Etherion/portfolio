@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Provider } from "@radix-ui/react-tooltip";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "Rachit | Software Engineer",
@@ -25,6 +26,7 @@ export default function RootLayout({
         {children}
         </Provider>
         {/* <Footer /> */}
+        <SpeedInsights />
       </body>
     </html>
   );
