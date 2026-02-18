@@ -78,7 +78,7 @@ export const GitHubActivity = () => {
           className="glass-card rounded-xl p-6 lg:p-8"
         >
           {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 mb-8">
+          <div className="flex flex-wrap justify-center gap-8 mb-8 text-foreground">
             {[
               { icon: GitCommit, label: "Contributions", value: "26+" },
               { icon: Star, label: "Stars Earned", value: "0" },

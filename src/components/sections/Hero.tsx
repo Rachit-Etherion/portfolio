@@ -39,7 +39,7 @@ export default function Hero() {
           >
             <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-primary/20 glow-effect">
               <img
-                src="https://media.licdn.com/dms/image/v2/D5603AQHtnTOcfD6jXA/profile-displayphoto-scale_200_200/B56Zm5ZrxwI0AY-/0/1759752143140?e=1769040000&v=beta&t=Adlb-JydA1HTuu_QTl8Ny-Jbr7BmHbnP37i_3bIBr6w"
+                src="/Profile_Pic.JPG"
                 alt="Rachit Singh"
                 className="w-full h-full object-cover"
               />
@@ -128,7 +128,7 @@ export default function Hero() {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="gap-2 text-foreground" asChild>
-                <a href="/resume.pdf" download>
+                <a href="/Resume.pdf" download>
                   <Download className="w-4 h-4" />
                   Resume / CV
                 </a>

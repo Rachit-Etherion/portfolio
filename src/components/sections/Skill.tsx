@@ -61,10 +61,10 @@ export default function Skill() {
             <span className="text-primary font-mono text-sm tracking-wider uppercase mb-4 block">
                 What I Work With
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold">Technical Arsenal</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground">Technical Arsenal</h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-foreground">
             {skillCategories.map((category, index) => (
                 <motion.div
                 key={category.title}
