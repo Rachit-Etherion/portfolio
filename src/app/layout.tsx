@@ -1,13 +1,32 @@
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import { Provider } from "@radix-ui/react-tooltip";
+import { Providers } from "@/app/providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
-  title: "Rachit | Software Engineer",
+  title: "Rachit Singh | Senior Software Engineer | Backend & Distributed Systems",
   description: 
-    "Software Engineer with experience in scalable systems, performance optimization, and modern web development.",
+    "Portfolio of Rachit Singh, Senior Software Engineer at Bloomberg. Experience building high-performance APIs, database optimizations, and distributed systems for buy-side financial workflows.",
+  keywords: [
+    "Rachit Singh", 
+    "Senior Software Engineer", 
+    "Bloomberg", 
+    "Buy Side",
+    "Backend Developer", 
+    "Distributed Systems", 
+    "Java", 
+    "Node.js", 
+    "Python", 
+    "System Design", 
+    "AWS"
+  ],
+  authors: [{ name: "Rachit Singh" }],
+  creator: "Rachit Singh",
+  openGraph: {
+    title: "Rachit Singh | Senior Software Engineer",
+    description: "Senior Software Engineer at Bloomberg on the Buy Side engineering team, building scalable systems and backend services.",
+    type: "website",
+    locale: "en_US",
+  },
   icons: {
     icon: "/favicon.ico",
   },
@@ -21,13 +40,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body cz-shortcut-listen="true">
-        {/* <Navbar /> */}
-        <Provider>
-        {children}
-        </Provider>
-        {/* <Footer /> */}
+        <Providers>
+          {children}
+        </Providers>
         <SpeedInsights />
       </body>
     </html>
   );
 }
+

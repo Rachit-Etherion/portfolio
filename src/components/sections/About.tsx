@@ -55,13 +55,11 @@ const AboutSection = () => {
             <div className="space-y-6 text-muted-foreground">
               <p className="text-lg leading-relaxed">
                 I'm a <span className="text-foreground font-medium">results-driven Software Engineer</span> with{" "}
-                <span className="text-primary font-semibold">4+ years of experience</span> in designing, developing, and
+                <span className="text-primary font-semibold">5+ years of experience</span> in designing, developing, and
                 optimizing scalable systems and high-performance applications.
               </p>
               <p className="leading-relaxed">
-                Currently working at <span className="text-foreground font-medium">FactSet</span>, where I contribute to a
-                platform serving over 8 million users. My expertise spans across backend development, system design,
-                distributed systems, and cloud architectures.
+                Currently working at <span className="text-foreground font-medium">Bloomberg</span> on the <span className="text-primary font-semibold">Buy Side</span> team, engineering high-performance and low-latency financial systems. My expertise spans across backend development, distributed architectures, financial workflows, and database optimization.
               </p>
               <p className="leading-relaxed">
                 I'm passionate about building robust, secure, and reliable solutions. Whether it's optimizing data pipelines,
@@ -73,7 +71,7 @@ const AboutSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mt-8">
               {[
-                { value: "4+", label: "Years Exp" },
+                { value: "5+", label: "Years Exp" },
                 { value: "8M+", label: "Users Served" },
                 { value: "99%+", label: "Uptime" },
               ].map((stat, index) => (

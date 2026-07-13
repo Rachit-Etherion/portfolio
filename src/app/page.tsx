@@ -7,7 +7,7 @@ import { GitHubActivity } from "@/components/sections/GithubActivities";
 import Hero from "@/components/sections/Hero";
 import { Project } from "@/components/sections/Project";
 import Skill from "@/components/sections/Skill";
-
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 export default function Home() {
   return (
@@ -23,6 +23,8 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
+      <ScrollToTop />
     </div >
   );
 }
+

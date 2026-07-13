@@ -6,17 +6,39 @@ import { Briefcase, Calendar, MapPin, ExternalLink } from "lucide-react";
 
 const experiences = [
   {
+    company: "Bloomberg",
+    role: "Senior Software Engineer",
+    location: "Pune, Maharashtra, India",
+    period: "April 2026 – Present",
+    current: true,
+    website: "https://www.bloomberg.com",
+    highlights: [
+      "Designing and developing high-performance services within the **Buy Side** engineering team, contributing to scalable financial software systems",
+      "Collaborating on low-latency data pipelines, message queue systems, and backend services to process complex financial transactions",
+      "Optimizing system designs for reliability, system monitoring, and cross-team service integrations",
+    ],
+    technologies: [
+      "C++",
+      "Python",
+      "Java",
+      "Microservices",
+      "Distributed Systems",
+      "SQL",
+    ],
+  },
+  {
     company: "FactSet",
     role: "Software Engineer III",
     location: "Hyderabad, India",
-    period: "June 2021 – Present",
-    current: true,
+    period: "June 2021 – April 2026",
+    current: false,
+    website: "https://www.factset.com",
     highlights: [
-      "Improved backend performance for a large-scale SaaS platform (8M+ users) by 25% through optimization of Java microservices, Node.js APIs, and Python-based data workflows",
-      "Led cross-functional engineering teams, improving sprint delivery velocity by 30% via better planning and code reviews",
-      "Established SLA/SLO standards ensuring 99%+ availability and reducing downtime incidents by 20%",
-      "Built and optimized data ingestion pipelines, improving processing efficiency by 36% and reducing error rates by 55%",
-      "Resolved 150+ production issues, reducing average resolution time by 60%",
+      "Improved backend performance for a large-scale SaaS platform serving **8M+ users** by **25%** through optimization of Java microservices, Node.js APIs, and Python-based workflows",
+      "Led cross-functional engineering teams, boosting sprint delivery velocity by **30%** via refined agile processes, mentoring, and rigorous code reviews",
+      "Established SLA/SLO standards, ensuring **99%+ availability** and reducing downtime incidents by **20%**",
+      "Designed and optimized data ingestion pipelines, improving processing efficiency by **36%** and reducing error rates by **55%**",
+      "Resolved **150+ critical production issues**, decreasing average resolution times by **60%** with improved monitoring and log analysis",
     ],
     technologies: [
       "Java",
@@ -81,7 +103,7 @@ export const Experience = () => {
                         )}
                         </div>
                         <a
-                        href="https://www.factset.com"
+                        href={exp.website}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary font-medium flex items-center gap-1 hover:underline"
@@ -104,16 +126,30 @@ export const Experience = () => {
                     </span>
                     </div>
 
-                    <ul className="space-y-2 mb-4">
-                    {exp.highlights.map((highlight, i) => (
+                    <ul className="space-y-3 mb-4">
+                    {exp.highlights.map((highlight, i) => {
+                      const parts = highlight.split(/(\*\*.*?\*\*)/g);
+                      return (
                         <li
-                        key={i}
-                        className="text-sm text-muted-foreground flex items-start gap-2"
+                          key={i}
+                          className="text-sm text-muted-foreground flex items-start gap-2 leading-relaxed"
                         >
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                        {highlight}
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                          <span>
+                            {parts.map((part, index) => {
+                              if (part.startsWith("**") && part.endsWith("**")) {
+                                return (
+                                  <strong key={index} className="text-foreground font-semibold">
+                                    {part.slice(2, -2)}
+                                  </strong>
+                                );
+                              }
+                              return part;
+                            })}
+                          </span>
                         </li>
-                    ))}
+                      );
+                    })}
                     </ul>
 
                     <div className="flex flex-wrap gap-2">

@@ -5,8 +5,9 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="py-12 border-t border-color" >
+        <footer className="py-12 border-t border-border/50 bg-secondary/10" >
             <div className="section-container">
+
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-2 text-muted-foreground">
                     <span>© {currentYear} Rachit Singh. Built with</span>

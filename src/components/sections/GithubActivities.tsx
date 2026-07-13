@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Github, GitCommit, Star, GitFork } from "lucide-react";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 export const GitHubActivity = () => {
   const ref = useRef(null);
@@ -54,6 +55,27 @@ export const GitHubActivity = () => {
       default:
         return "bg-secondary";
     }
+  };
+
+  const getCellInfo = (weekIndex: number, dayIndex: number, level: number) => {
+    const today = new Date();
+    // Calculate total days behind today
+    const daysAgo = (51 - weekIndex) * 7 + (6 - dayIndex);
+    const cellDate = new Date(today);
+    cellDate.setDate(today.getDate() - daysAgo);
+    
+    const dateStr = cellDate.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+
+    let contributionText = "No contributions";
+    if (level === 1) contributionText = "1-2 contributions";
+    else if (level === 2) contributionText = "3-4 contributions";
+    else if (level === 3) contributionText = "5+ contributions";
+
+    return `${contributionText} on ${dateStr}`;
   };
 
   return (
@@ -108,18 +130,24 @@ export const GitHubActivity = () => {
               {contributions.map((week, weekIndex) => (
                 <div key={weekIndex} className="flex flex-col gap-1">
                   {week.map((level, dayIndex) => (
-                    <motion.div
-                      key={`${weekIndex}-${dayIndex}`}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{
-                        duration: 0.3,
-                        delay: 0.5 + weekIndex * 0.01,
-                      }}
-                      className={`w-3 h-3 rounded-sm ${getLevelColor(
-                        level
-                      )} transition-colors hover:ring-2 hover:ring-primary/50`}
-                    />
+                    <Tooltip key={`${weekIndex}-${dayIndex}`}>
+                      <TooltipTrigger asChild>
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                          transition={{
+                            duration: 0.3,
+                            delay: 0.5 + weekIndex * 0.01,
+                          }}
+                          className={`w-3 h-3 rounded-sm ${getLevelColor(
+                            level
+                          )} transition-colors hover:ring-2 hover:ring-primary/50 cursor-pointer`}
+                        />
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="bg-card text-foreground border-border">
+                        {getCellInfo(weekIndex, dayIndex, level)}
+                      </TooltipContent>
+                    </Tooltip>
                   ))}
                 </div>
               ))}

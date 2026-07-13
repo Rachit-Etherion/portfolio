@@ -2,12 +2,15 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MapPin, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import InteractiveBackground from "@/components/ui/InteractiveBackground";
 
 export default function Hero() {
   return (
     <section className="min-h-screen hero-gradient flex items-center justify-center relative overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <InteractiveBackground />
         <motion.div
           className="absolute w-96 h-96 rounded-full bg-primary/5 blur-3xl"
           animate={{
@@ -37,11 +40,14 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-primary/20 glow-effect">
-              <img
+            <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-primary/20 glow-effect relative bg-secondary/50">
+              <Image
                 src="/Profile_Pic.JPG"
                 alt="Rachit Singh"
-                className="w-full h-full object-cover"
+                width={224}
+                height={224}
+                priority
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
               />
             </div>
             <motion.div
@@ -50,7 +56,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              4+ Years Exp
+              5+ Years Exp
             </motion.div>
           </motion.div>
 
@@ -63,7 +69,7 @@ export default function Hero() {
               className="flex items-center justify-center lg:justify-start gap-2 text-muted-foreground mb-4"
             >
               <MapPin className="w-4 h-4" />
-              <span>India</span>
+              <span>Pune, Maharashtra, India</span>
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse ml-2" />
               <span className="text-sm">Available for opportunities</span>
             </motion.div>
@@ -83,8 +89,8 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-xl lg:text-2xl text-muted-foreground mb-6"
             >
-              Software Engineer III @{" "}
-              <span className="text-foreground font-medium">FactSet</span>
+              Senior Software Engineer @{" "}
+              <span className="text-foreground font-medium">Bloomberg</span>
             </motion.p>
 
             <motion.p
@@ -93,9 +99,8 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className="text-muted-foreground max-w-2xl mb-8 leading-relaxed"
             >
-              Backend-focused engineer building scalable systems serving{" "}
-              <span className="text-primary font-semibold">8M+ users</span>. 
-              Passionate about distributed systems, microservices, and cloud architectures.
+              Senior Backend Engineer on the <span className="text-primary font-semibold">Buy Side</span> engineering team.
+              Passionate about distributed systems, low-latency financial architectures, and high-throughput data processing.
             </motion.p>
 
             {/* Tech Stack Quick View */}
